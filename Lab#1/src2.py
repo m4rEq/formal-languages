@@ -24,7 +24,7 @@ class Dictionary(object):
 				self.list_of_words.append(word)
 				msg = "Done!"
 			else:
-				msg = "Some symbol(s) of word does not match no one symbol from the alphabet!"
+				msg = "Some symbol(s) of word \"{}\" does not match no one symbol from the alphabet!".format(word)
 		print(msg)
 
 	def dlt(self, word):
@@ -34,15 +34,21 @@ class Dictionary(object):
 		else:
 			print("Word {} has no in dictionary!".format(word))
 
-	def sort(self):
-		pass
+	def dict_sort(self):
+		self.list_of_words.sort(key=lambda x: self.alphabet.get().index(x[0]))
 
 
 if __name__ == '__main__':
-	alp = Alphabet(chars=['a', 'b', 'c'])
+	alp = Alphabet(chars=['c', 'b', 'a'])
 
 	d = Dictionary(alp)
 	d.add('abba')
 	d.add('acab')
+	d.add('caba')
+	d.add('caca')
+	d.add('baba')
+	d.add('baca')
 	d.add('alaverdi')
+	print(d.get())
+	d.dict_sort()
 	print(d.get())
