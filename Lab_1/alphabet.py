@@ -11,6 +11,9 @@ class Alphabet(object):
 		if autogen == True:
 			while len(self.alph) < num:
 				self.alph.add(radnom.choice(string.letters))
+
+	def get(self):
+		return self.alph
 		
 	def check_symbol(self, symb):
 		if symb in self.alph:
@@ -25,7 +28,7 @@ class Alphabet(object):
 
 	def add(self, symb):
 		if self.check_symbol(symb) == False:
-			self.alph.append()
+			self.alph.append(str(symb))
 			return True
 		return False
 
@@ -34,9 +37,6 @@ class Alphabet(object):
 			self.alph.remove(symb)
 			return True
 		return False
-
-	def get(self):
-		return self.alph
 
 	def __repr__(self):
 		return "[" + " ".join(self.alph) + "]"
