@@ -1,11 +1,7 @@
-from src2 import Dictionary
-from src1 import Alphabet
-import unittest as ut
+from alphabet import Alphabet
 
 
 class AlphabetTest(ut.TestCase):
-	# def setUP(slef):
-	# 	self.alp = Alphabet(chars=[a, b, c])
 	def setUp(self):
 		self.alp = Alphabet(chars=['a', 'b', 'c'])
 

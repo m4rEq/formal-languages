@@ -3,23 +3,15 @@ import random
 
 
 class Alphabet(object):
-	def __init__(self, autogen=False, num=0, chars=None):
+	def __init__(self, chars=None, autogen=False, num=0):
 		self.alph = []
-		if autogen == True:
-			while len(self.alph) < num:
-				# need another function to add element to alphabet
-				# for don't add the same elements
-				self.alph.append(random.choice(string.letters))
-		
 		if chars != None:
 			self.alph.extend(chars)
-
-	def add(self):
-		pass
-
-	def dlt(self):
-		pass
-
+		
+		if autogen == True:
+			while len(self.alph) < num:
+				self.alph.add(radnom.choice(string.letters))
+		
 	def check_symbol(self, symb):
 		if symb in self.alph:
 			return True
@@ -31,10 +23,26 @@ class Alphabet(object):
 				return False
 		return True
 
+	def add(self, symb):
+		if self.check_symbol(symb) == False:
+			self.alph.append()
+			return True
+		return False
+
+	def dlt(self, symb):
+		if self.check_symbol(symb) == True:
+			self.alph.remove(symb)
+			return True
+		return False
+
 	def get(self):
+		return self.alph
+
+	def __repr__(self):
 		return "[" + " ".join(self.alph) + "]"
 
 
 if __name__ == '__main__':
 	alp = Alphabet(chars=['a', 'b', 'c'])
+	print(alp)
 	print(alp.get())

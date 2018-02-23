@@ -1,4 +1,4 @@
-from src1 import Alphabet
+from alphabet import Alphabet
 
 
 class Dictionary(object):
