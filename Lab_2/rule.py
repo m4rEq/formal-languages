@@ -5,9 +5,10 @@ class Rule(object):
 
 	def add_rule(self, rule):
 		word, repl = rule.split(" => ")
-		if word not in self.rules:
-			self.rules[word] = []
-		self.rules[word].append(repl)
+		self.rules[word] = relp
+		# if word not in self.rules:
+		# 	self.rules[word] = []
+		# self.rules[word].append(repl)
 
 	def dlt_rule(self, rule):
 		word, repl = rule.split(" => ")
