@@ -1,4 +1,4 @@
-from alphabet import Alphabet
+from libs.alphabet import Alphabet
 import string
 
 
@@ -41,25 +41,4 @@ class Grammar(object):
 			res_string += f"{k} => {v}" + "\n"
 		return res_string
 
-
-def main():
-
-	l1 = string.ascii_uppercase
-	l2 = string.ascii_lowercase
-
-	gram = Grammar(l1, l2)
-
-	print(gram.rules)
-	gram.add_rule("S => abc")
-	gram.add_rule("S => bca")
-	gram.add_rule("G => ggg")
-
-	print(gram)
-
-	print(gram.check_word("Hello"))
-	print(gram.check_word("Hello!"))
-
-
-if __name__ == '__main__':
-	main()
 
