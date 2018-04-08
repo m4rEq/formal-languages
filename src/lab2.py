@@ -8,13 +8,13 @@ def main():
 
 	grmr = Grammar(l1, l2)
 
-	grmr.add_rule("S => abc")
+	grmr.add_rule("S => aTbc")
 	grmr.add_rule("G => ggg")
+	grmr.add_rule("aB => daca")
+	grmr.add_rule("T => Aba")
 
-	print(grmr)
 
-	print(grmr.check_word("Hello"))
-	print(grmr.check_word("Hello!"))
+
 
 
 if __name__ == '__main__':

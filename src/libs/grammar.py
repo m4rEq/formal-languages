@@ -23,6 +23,16 @@ class Grammar(object):
 	def add_rule(self, rule):
 		word, repl = rule.split(" => ")
 		self.rules[word] = repl
+		print_text = f"Была добавлена {word} => {repl}, Тип = "
+		if len(word) > 1:
+			print(print_text + "КЗ")
+		elif self.N.check_symbol(repl[0]) or self.N.check_symbol(repl[-1]):
+			print(print_text + "Грамматика 3его типа")
+		else:
+			print(print_text + "КС")
+
+	def type_rule(self):
+		pass
 
 	def dlt_rule(self, rule):
 		word, repl = rule.split(" => ")
@@ -31,6 +41,9 @@ class Grammar(object):
 
 	def action(self, string):
 		return string.replace("S", self.rules["S"][0])
+		# import re
+		# [m.start() for m in re.finditer('test', 'test test test test')]
+		# [0, 5, 10, 15]
 
 	def check_word(self, word):
 		return self.common_alph.check_word(word)
