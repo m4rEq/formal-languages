@@ -1,5 +1,6 @@
 from libs.alphabet import Alphabet
 import string
+import re
 
 
 class Grammar(object):
@@ -39,10 +40,15 @@ class Grammar(object):
 		if word in self.rules:
 			self.rules[word].remove(repl)
 
-	def action(self, string):
-		return string.replace("S", self.rules["S"][0])
+	def action(self, word, rule, num=10):
+		#return word.replace(rule, self.rules[rule], num)
+		# return string.replace("S", self.rules["S"][0])
 		# import re
-		# [m.start() for m in re.finditer('test', 'test test test test')]
+		res = [m.start() for m in re.finditer(rule, word)]
+		print(res)
+		if num > len(res): num = len(res)
+		res_list = list(word)
+		return res_list[res[num-1]]
 		# [0, 5, 10, 15]
 
 	def check_word(self, word):

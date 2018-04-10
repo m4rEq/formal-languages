@@ -13,6 +13,7 @@ def main():
 	grmr.add_rule("aB => daca")
 	grmr.add_rule("T => Aba")
 
+	print(grmr.action("SaGadaS", "S"))
 
 
 
