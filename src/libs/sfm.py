@@ -7,6 +7,13 @@ class FSMRule(object):
 		self.initial_states = set()
 		self.final_states = set()
 		self.current_state = None
+		self.alphabet = set()
+
+	def add_alphabet(self, letters):
+		if type(letters) is str:
+			self.alphabet.add(letters)
+		else:
+			self.alphabet.update(letters)
 
 	def add_states(self, states):
 		"""obj.add_states(1) or obj.add_states((1, 2))"""
@@ -24,23 +31,23 @@ class FSMRule(object):
 
 	def add_initial_states(self, states):
 		"""obj.add_initial_states(1) or obj.add_initial_states((1, 2))"""
-		if type(states) in (int, str):
-			self.states.add(states)
-			self.initial_states(states)
+		if type(states) is int:
+			self.initial_states = states
+			if self.current_state == None:
+				self.current_state = states
 		else:
 			self.states.update(states)
-			self.initial_states(states)
+			self.initial_states = states
 
 	def add_final_states(self, states):
 		"""obj.add_final_states(1) or obj.add_final_states((1, 2))"""
-		if type(states) in (int, str):
-			self.states.add(states)
-			self.initial_states(states)
-		else:
-			self.states.update(states)
-			self.initial_states(states)
+		if type(states) is int:
+			self.final_states.add(states)
+		# else:
+		# 	self.states.update(states)
+		# 	self.initial_states(states)
 
-	def transition(self, state, label):
+	def transit(self, state, label):
 		"""obj.transition(2, 'a')"""
 		if (self.current_state, label, state) in self.transitions:
 			self.current_state = state
